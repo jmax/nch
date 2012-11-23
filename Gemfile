@@ -13,3 +13,5 @@ group :assets do
 end
 
 gem 'jquery-rails'
+gem 'devise',            '2.1.2'
+gem 'strong_parameters', '0.1.5'

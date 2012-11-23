@@ -8,6 +8,39 @@
 </head>
 <body>
 
+<h1>
+  <% if current_company %>
+    <%= link_to current_company.name, root_path %>
+  <% else %>
+    <%= link_to "NC Hammer", root_path %>
+  <% end -%>
+</h1>
+
+<ul class="nav">
+  <% unless current_user %>
+    <li>
+      <%= link_to "Join for Free", signup_path,
+            class: "join-for-free"  %>
+    </li>
+    <li>
+      <%= link_to "Login", login_path, 
+            class: "login"  %>
+    </li>
+  <% end -%>
+  <% if current_user %>
+    <li>
+      <%= link_to current_user.full_name, edit_user_registration_path %>
+    </li>
+    <li>
+      <%= link_to "Logout", logout_path, 
+            class: "login", method: :delete %>
+    </li>
+  <% end -%>
+</ul>
+
+<p class="notice"><%= notice %></p>
+<p class="alert"><%= alert %></p>
+
 <%= yield %>
 
 </body>
